@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop - All Pets</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container-fluid">
+            <div class="pet_logo d-inline-flex p-1">
+                <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
+                <p class="text-center pl-1">
+                    <br>123 Street, 
+                    <br>ABC Town, 
+                    <br>USA 54321
+                </p>
+            </div>
+            <h1 class=" d-flex .justifty-conent-center">Welcome to the Pet Shop!</h1>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active text-dark" aria-current="page" href="#"> Pet's Home</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link text-dark" href="#">Ad Pet</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#">Dashboard</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <img class="img-fluid rounded mx-auto d-inline-block" style="width:25% " src="../images/love_pets.png" alt="love_pets">
+    <img class="img-fluid rounded mx-auto d-inline-block" src="../images/hamster.png" alt="hamster">
+    <img src="../images/turtle.png" alt="turtle">
+    <img src="../images/adopt_pet.png" alt="adopt">
+    
+    <h3 class="text-center">Here are all of the pets in our shop:</h3>
+    <table class="table table-bordered">
+        <thead>
+            <th> Pet Name </th>
+            <th> Born </th>
+            <th> Description </th>
+            <th> Adopt a Pet </th>
+        </thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="/">Adopt Me</a></td>
+        </tr>
+    </table>
+    <input type="submit" value="Logout" href="/logout" class="btn btn-info">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+</html>
