@@ -1,6 +1,6 @@
 from flask import render_template,redirect,request,flash,session
-from flask_app import app
-from ..models import user
+from flask_app.models.pet import pet
+from flask_app.models.user import user
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
