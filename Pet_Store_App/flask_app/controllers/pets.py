@@ -6,21 +6,21 @@ from flask_app.models.user import User
 
 
 @app.route('/home')
-def results_page():
+def home():
     # this first part is a check to make sure our users are logged in and have access to see this page
     if 'user_id' not in session:
         return redirect('/logout')
 
-    return render_template('home.html', all_pets = Pet.get_all())
+    return render_template('dashboard.html', all_pets = Pet.get_all())
 
 
-@app.route('/add_new_pet')
+@app.route('/add/new/pet')
 def add_new_pet():
     # this first part is a check to make sure our users are logged in and have access to see this page
     if 'user_id' not in session:
         return redirect('/logout')
 
-    return render_template('create_page.html')
+    return render_template('addPet.html')
 
 
 @app.route('/create',methods=['POST'])
@@ -46,7 +46,7 @@ def detail_page(pet_id):
     data = {
         'id': pet_id
     }
-    return render_template("details_page.html", workout = Pet.get_one(data))
+    return render_template("petProfile.html", workout = Pet.get_one(data))
 
 
 @app.route('/edit_page/<int:pet_id>')
@@ -57,7 +57,7 @@ def edit_page(pet_id):
     data = {
         'id': pet_id
     }
-    return render_template("edit_page.html", workout = Pet.get_one(data))
+    return render_template("editPet.html", workout = Pet.get_one(data))
 
 
 @app.route('/update/<int:pet_id>', methods=['POST'])

@@ -1,18 +1,19 @@
 from flask import render_template,redirect,request,flash,session
-from flask_app.models.pet import pet
-from flask_app.models.user import user
+from flask_app import app
+from flask_app.models.pet import Pet
+from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("homePage.html")
 
 
 @app.route('/register',methods=['POST'])
 def register():
-    if not user.User.validate_registration(request.form):
+    if not User.validate_registration(request.form):
         return redirect('/')
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
 
@@ -23,7 +24,7 @@ def register():
         'password': pw_hash
     }
 
-    new_user_id = user.User.create_user(user_info)
+    new_user_id = User.create_user(user_info)
 
     # check whether or not someone has logged in and who logged in
     session['user_id'] = new_user_id
@@ -41,13 +42,13 @@ def logout():
 
 @app.route('/login', methods = ['POST'])
 def login():
-    if not user.User.validate_login(request.form):
+    if not User.validate_login(request.form):
         return redirect('/')
     #check for anyone in the database that has the email of the input on the form
     data = {
         'email': request.form['email']
     }
-    user_from_db = user.User.get_by_email(data)
+    user_from_db = User.get_by_email(data)
     if not user_from_db:
         flash('Invalid email or password')
         return redirect('/')

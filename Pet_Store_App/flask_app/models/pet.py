@@ -1,5 +1,6 @@
+from Pet_Store_App.flask_app.models.user import User
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models import user
+from flask_app.models.user import user
 from flask import flash
 
 class Pet:
@@ -11,7 +12,7 @@ class Pet:
         self.parent = data['parent']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.user = user.User.get_one_by_id({'id':data['user_id']})
+        self.user = User.get_one_by_id({'id':data['user_id']})
 
 
 
@@ -42,7 +43,7 @@ class Pet:
         user_info = {
             'id' : results[0]['user_id']
         }
-        this_user = user.User.get_one_by_id(user_info)
+        this_user = User.get_one_by_id(user_info)
         # make the user an attribute of this report
         this_pet.user = this_user
         return this_pet
