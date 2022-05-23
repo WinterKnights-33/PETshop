@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/editPet.css')}}"/>
     <title>Pet Shop - Edit Pet</title>
 </head>
 <body>
@@ -20,15 +20,15 @@
             </div>
             <h1 class=" d-flex .justifty-conent-center">Edit Your Pet!</h1>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-dark" aria-current="page" href="#"> Dashboard </a>
-              </li>
-              <!-- <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link active text-dark" aria-current="page" href="#"> Dashboard </a>
+                </li>
+                <!-- <li class="nav-item">
                 <a class="nav-link text-dark" href="#"> Add Pet </a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#"> Pet Library </a>
-              </li>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#"> Pet Library </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -56,7 +56,14 @@
                 </div>
             </div>
         </form>
+        <!-- Our pet would need to go right here so we can edit their look-->
+        <div class="btn">
+            <button onclick="red()">Red</button>
+            <button onclick="pink()">Pink</button>
+            <button onclick="yellow()">Yellow</button>
+        </div>
+        
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 </body>
 </html>
