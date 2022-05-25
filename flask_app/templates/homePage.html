@@ -1,91 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/homePage.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/homePage.css')}}" />
     <title>Pet Shop - Home Page</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <nav class="navbar navbar-expand-lg bg-info">
-                <div class="container-fluid">
-                    <div class="pet_logo d-inline-flex p-1">
-                        <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                        <p class="text-center pl-1">
-                            <br>123 Street, 
-                            <br>ABC Town, 
-                            <br>USA 54321
-                        </p>
-                    </div>
-                    <h1 class=" d-flex .justifty-conent-center">Welcome to the Pet Shop!</h1>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item ">
-                            <a class="nav-link text-dark" href="#">Pet Library</a>
-                        </li>
-                    </ul> 
+    <div>
+        <div class="cont">
+            <nav class="nav">
+                <div class="cont">
+                    <h1 class="nav">Welcome to the Pet Shop!</h1>
                 </div>
             </nav>
-            <img class="main_img img-fluid rounded mx-auto d-block" src="../images/animals.png" alt="animals" style="width:75%">
-            <h4>Looking for a new fur baby to join your family? Do you want something cute and cuddly or smooth and scaly or bright and feathery? Then you came to the right place. Our pet shop is one of a kind. Come explore the pet shop, and see if you can get a new friend today.  </h4>
-            <img class="main_img mg-fluid rounded mx-auto d-block" src="../images/kiss_puppy.png" style="width:75%" alt="kiss_puppy">
-        </div>
-        <div class="main">
-            <h2 class="text-center">Register or Login</h2>
-            <div class="d-flex justify-content-around">
-                <form action="/register" method="post" class="col-4 p-2 bg-info text-dark">
-                    <h2 class="text-dark">Create Account</h2>
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Please create an account.</strong>
-                        </div>
-                    <div class="form-group">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" name="firstName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" name="lastName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm">Confirm Password:</label>
-                        <input type="password" name="confirm" class="form-control">
-                    </div>
-                    <input type="submit" value="Submit" href="/pet_profile" class="btn btn-primary">
-                </form>
-                <form action="/login" method="post" class="col-4 p-2 bg-info text-dark">
-                    <h2 class="text-dark">Login</h2>
-                        <div class="alert alert-danger" role="alert">
-                            <h4>Please log in.</h4>
-                        </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <input type="submit" value="Login" href="/pet_profile" class="btn btn-success">
-                </form>
+            <div class="cont">
+                <h4 class="nav">Looking for a new fur baby to join your family? Do you want something cute and cuddly or smooth and scaly or bright and feathery? Then you came to the right place. Our pet shop is one of a kind. Come explore the pet shop, and see if you
+                    can get a new friend today. </h4>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <p class="bg-dark text-light d-flex justify-content-center">Copyright © 2022 The Pet Shop
-            123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
-    </div>
-    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
-    </script>
+            <div class="container ">
+                <div id="sign-form" class="sign-form ">
+                    <form action="/register " method="post " class="navigation">
+                        <h2 id="sign-form" class="sign-form">Create Account</h2>
+                        <ol class="questions">
+                            <li>
+                                <span><label for="firstName ">First Name:</label></span>
+                                <input class="active" id="name" name="name" type="text" placeholder="Hey there... What's your name ;)" autofocus/>
+                            </li>
+                            <li>
+                                <span><label for="lastName ">Last Name:</label></span>
+                                <input class="active" id="name" name="name" type="text" placeholder="Last name?  Dont worry, I dont need your mothers madian name..." autofocus/>
+                            </li>
+                            <li>
+                                <span><label for="email ">Email:</label></span>
+                                <input id="email" name="email" type="text" placeholder="Email so we can spam you lots to remember to adpot a cutie" autofocus/>
+                            </li>
+                            <li>
+                                <span><label for="password ">Password:</label></span>
+                                <input id="viewpswd" name="password" type="text" placeholder="so...this your password..." />
+                            </li>
+                            <li>
+                                <span><label for="confirm ">Confirm Password:</label></span>
+                                <input id="password" name="password" type="password" placeholder="make sure you dont forget, type it again!" autofocus/>
+                                <span id="show-pwd" class="view"></span>
+                            </li>
+                            <li id="signup">
+                            </li>
+                        </ol>
+                        <div id="next-page"></div>
+                        <div class="error-message"></div>
+                    </form>
+                    <form action="/login " method="post " class="sign-form " id="sign-form ">
+                        <h2 id="sign-form" class="sign-form ">Login</h2>
+                        <div class="error-message" role="alert ">
+                            <h4>Please log in!</h4>
+                            <ol class="questions">
+                                <li>
+                                    <span><label for="email ">Email:</label></span>
+                                    <input id="email" name="email" type="text" placeholder="And Your Email Is???" autofocus/>
+                                </li>
+                                <li>
+                                    <span><label for="password ">Password:</label></span>
+                                    <input id="password" name="password" type="password" placeholder="Password Please!!" autofocus/>
+                                </li>
+                                <li>
+                                    <input type="submit " value="Login " href="/pet_profile" id="signup" class="btn">
+                                </li>
+                            </ol>
+                            <div id="next-page"></div>
+                            <div class="error-message"></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer ">
+                <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
+            </div>
+            <script type="text/javascript " src="{{url_for( 'static',filename='js/script.js' )}} "></script>
+            </script>
 </body>
+
 </html>
