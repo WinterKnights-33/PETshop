@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Shop Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/dashboard.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/dashboard.css')}}" />
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-info">
         <div class="container-fluid">
-            <div class="pet_logo d-inline-flex p-1">
-                <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                <p class="text-center pl-1">
-                    <br>123 Street, 
-                    <br>ABC Town, 
-                    <br>USA 54321
-                </p>
+            <h2 class="header">Welcome, {{user.first_name}}</h2>
+            <div class="head">
+                <a href="/pet/addPet" class="btn">Adopt a New Fur Baby!</a>
+                <a href="/logout" class="logB">Logout</a>
             </div>
-            <h1 class=" d-flex .justifty-conent-center">Welcome to the Pet Shop!</h1>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-dark" aria-current="page" href="#">Your Pet's Home</a>
-                </li>
-                <!-- <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Adopt Pet</a>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Pet Library</a>
-                </li>
-            </ul>
         </div>
-    </nav>
-    <img class="img-fluid rounded mx-auto d-flex .justify-content-center " style="width:30%" src="../images/pet_lovers.png" alt="pet lovers">
-    <h1 class="text-center">Hello "User Name Goes Here" </h1>
-    <p class="text-center">Welcome "User Name Goes Here" to your profile page. You can add more pets to your profile or check out some cool pets in our library from other members.</p>
-    <h3 class="text-center">Here are your pets:</h3>
-    <table class="table table-bordered">
-        <thead>
-            <th> Pet Name </th>
-            <th> Birth Date </th>
-            <th> Description</th>
-            <th> Edit | Delete</th>
-        </thead>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
-        </tr>
-    </table>
-    <input type="submit" value="Logout" href="/logout" class="btn btn-info">
-    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+
+        <h1 class="">Welcome to the Pet Shop!</h1>
+        <p class="text-center">Welcome "User Name Goes Here" to your profile page. You can add more pets to your profile or check out some cool pets in our library from other members.</p>
+        <h3 class="text-center">Here are your pets:</h3>
+        </div>
+        <table class="user">
+            <thaed>
+                {% for pet in pets %}
+                <tr>
+                    <th>
+                        <td>
+                            <a href="/pet/veiw/{{pet.id}}">{{pet.name}}</a>
+                        </td>
+                        <td>
+                            by {{user.first_name}}
+                        </td>
+                        <td>
+                            {% if pet.user_id == session.user_id %}
+                            <a href="/pet/delete/{{pet.id}}">New Home On the Farm...</a>
+                            <a href="/pet/edit/{{pet.id}}">New Style!</a> {% endif %}
+                        </td>
+                    </th>
+                </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+
+        <div id="bowl">
+            <div id="water-bowl">
+                <div class="water"></div>
+            </div>
+            <div id="food-bowl">
+                <div class="food"></div>
+            </div>
+            <div class="ball"></div>
+        </div>
+
+        <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 </body>
+
 </html>

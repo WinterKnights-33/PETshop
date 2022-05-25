@@ -1,60 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/editPet.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/editPet.css')}}" />
     <title>Pet Shop - Edit Pet</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-info">
-        <div class="container-fluid">
-            <div class="pet_logo d-inline-flex p-1">
-                <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                <p class="text-center pl-1">
-                    <br>123 Street, 
-                    <br>ABC Town, 
-                    <br>USA 54321
-                </p>
+    <nav class="wrapper">
+        <div class="contain">
+            <div class="head">
+                <a href="/pet/addPet" class="logB">Adopt A New Fur Baby!</a>
+                <a href="/home" class="logB">Home Sweet Home</a>
+                <a href="/logout" class="logB">Logout</a>
             </div>
-            <h1 class=" d-flex .justifty-conent-center">Edit Your Pet!</h1>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-dark" aria-current="page" href="#"> Dashboard </a>
-                </li>
-                <!-- <li class="nav-item">
-                <a class="nav-link text-dark" href="#"> Add Pet </a>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#"> Pet Library </a>
-                </li>
-            </ul>
-        </div>
     </nav>
     <div class="d-flex justify-content-around">
-        <form action="/update/pet" method="post" class="col-4 p-4 my-4 bg-warning text-dark">
-            <h2 class="text-primary">Edit "Pet's Name Here"</h2>
-            <div class="d-flex justify-content-between col-6">
-                <input type="hidden" name="id" value={{edit.id}}>
-                <div class="col-12">
-                    <div class="form-group">
-                        <label for="name">Pet Name:</label>
-                        <input type="text" name="petName" class="form-control" value="{{edit.petName}}">
+        <form action="/addPet/pet/update/{{pet.id}}" method="POST" class="F">
+            <div class="form-group">
+                <label for="birthDate">Birth Date:</label>
+                <input type="date" name="birthDate" class="form-control" value="{{edit.birthDate}}">
+            </div>
+            <div class="user">
+                <input type="hidden" name="id" value="{{pet.id}}">
+                <input type="hidden" name="painted_by" value="{{user_id}}">
+                <input type="hidden" name="user_id" value="{{user_id}}">
+                <div class="int">
+                    <div class="in">
+                        <label id="pet" for="name">Lets Name Our Pet!</label>
+                        <p><input class="text" type="text" name="title" value="{{pet.name}}"></p>
                     </div>
-                    <div class="form-group">
-                        <label for="birthDate">Birth Date:</label>
-                        <input type="date" name="birthDate" class="form-control" value="{{edit.birthDate}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="col-2">
-                        <input type="submit" value="Edit Pet" href="/pet_profile" class="btn btn-primary">
+                    <div class="model">
+                        <label for="description">Description</label>
+                        <p><textarea class="dis" name="description" value="{{pet.description}}">{{pet.description}}</textarea></p>
                     </div>
                 </div>
-            </div>
+                <p><button class="rB" value="update">Update</button></p>
         </form>
         <!-- Our pet would need to go right here so we can edit their look-->
         <div class="btn">
@@ -62,8 +46,9 @@
             <button onclick="pink()">Pink</button>
             <button onclick="yellow()">Yellow</button>
         </div>
-        
-    </div>
-    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+
+        </div>
+        <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 </body>
+
 </html>

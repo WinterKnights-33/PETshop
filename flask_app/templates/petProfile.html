@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Shop - Pet Profile</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/petProfile.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/petProfile.css')}}" />
+    <title>Family Home!</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-info">
-        <div class="container-fluid">
-            <div class="pet_logo d-inline-flex p-1">
-                <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                <p class="text-center pl-1">
-                    <br>123 Street, 
-                    <br>ABC Town, 
-                    <br>USA 54321
-                </p>
-            </div>
-            <h1 class=" d-flex .justifty-conent-center">Welcome to your Pet Profile!</h1>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-dark" aria-current="page" href="#"> Dashboard </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#"> Edit Pet </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#"> Pet Library </a>
-                </li>
-            </ul>
+    <div class="wrapper">
+        <div class="header">
+            <a href="/pet/addPet" class="logB">Adopt A New Fur Baby!</a>
+            <a href="/home" class="logB">Dashboard</a>
+            <a href="/logout" class="logB">Logout</a>
         </div>
-    </nav>
-    <img class="img-fluid rounded mx-auto d-flex .justify-content-center " style="width:30%" src="../images/pet_watch.png" alt="pet watch">
-    <h1 class="text-center">Hello "Pet's Name Goes Here" </h1>
-    <p class="text-center">Welcome "Pet's Name Goes Here" to your pet profile page. Your parent can edit you in your profile or check out some other cool pets in our library from other members.</p>
-    <h3 class="text-center">View your Pet:</h3> 
-    
-    <div class="text-center pet_info">
-        <p> Pet Name: </p>
-        <p> Birth Date: </p>
-        <p> Description: </p>
-        <img src="../images/turtle.png" alt="pet turtle">
+        <div Class="intro">
+            <h1>{{pet.name))</h1>
+            <p>{{pet.description}}</p>
+        </div>
+        <div>
+            <p></p>
+        </div>
     </div>
-    
-    <input type="submit" value="Logout" href="/logout" class="btn btn-info">
-    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
-    </script>
 </body>
+
 </html>

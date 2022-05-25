@@ -1,230 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/addPet.css')}}"/>
-    <title>Pet Shop - Adopt a Pet</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/addPet.css')}}" />
+    <title>Pet Shop - Edit Pet</title>
 </head>
+
 <body>
-    <div class="">
-        <nav class="navbar navbar-expand-lg bg-info">
-            <div class="container-fluid">
-                <div class="pet_logo d-inline-flex p-1">
-                    <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                    <p class="text-center pl-1">
-                        <br>123 Street, 
-                        <br>ABC Town, 
-                        <br>USA 54321
-                    </p>
-                </div>
-                <h1 class=" d-flex .justifty-conent-center">Adopt a Pet!</h1>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-dark" aria-current="page" href="#"> Dashboard </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="#"> Pet Library </a>
-                    </li>
-                </ul>
+    <nav class="wrapper">
+        <div class="contain">
+            <div class="head">
+                <a href="/pet/addPet" class="logB">Adopt A New Fur Baby!</a>
+                <a href="/home" class="logB">Home Sweet Home</a>
+                <a href="/logout" class="logB">Logout</a>
             </div>
-        </nav>
-        <div class="d-flex justify-content-around">
-            <form action="/add/pet" method="post" class="col-4 p-4 my-4 bg-warning text-dark">
-                <h2 class="text-primary">Adopt a New Pet</h2>
-                <div class="d-flex justify-content-between col-6">
-                    <input type="hidden" name="id" value={{edit.id}}>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="name">Pet Name:</label>
-                            <input type="text" name="petName" class="form-control" value="{{edit.petName}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="birthDate">Birth Date:</label>
-                            <input type="date" name="birthDate" class="form-control" value="{{edit.birthDate}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description:</label>
-                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                        </div>
-                        <div class="col-2">
-                            <input type="submit" value="Add Pet" href="/pet_profile" class="btn btn-primary">
-                        </div>
+    </nav>
+    <div class="d-flex justify-content-around">
+        <form action="/addPet/pet/update/{{pet.id}}" method="POST" class="F">
+            <div class="form-group">
+                <label for="birthDate">Birth Date:</label>
+                <input type="date" name="birthDate" class="form-control" value="">
+            </div>
+            <div class="user">
+                <input type="hidden" name="id" value="{{pet.id}}">
+                <input type="hidden" name="painted_by" value="{{user_id}}">
+                <input type="hidden" name="user_id" value="{{user_id}}">
+                <div class="int">
+                    <div class="in">
+                        <label id="pet" for="name">Lets Name Our Pet!</label>
+                        <p><input class="text" type="text" name="title" value="{{pet.name}}"></p>
+                    </div>
+                    <div class="model">
+                        <label for="description">Description</label>
+                        <p><textarea class="dis" name="description" value="{{pet.description}}">{{pet.description}}</textarea></p>
                     </div>
                 </div>
-            </form>
+
+                <div id="cat-container">
+                    <div id="cat-tail"></div>
+                    <div id="cat-tail-mask"></div>
+                    <div id="cat-tail-end"></div>
+
+                    <div id="cat-body">
+                        <div class="cat-ear" id="cat-ear-left">
+                            <div class="cat-ear-inner" id="cat-ear-inner-left"></div>
+                        </div>
+                        <div class="cat-ear" id="cat-ear-right">
+                            <div class="cat-ear-inner" id="cat-ear-inner-right"></div>
+                        </div>
+                        <div id="cat-mask"></div>
+                        <div id="cat-patch">
+                            <div class="cat-fur"></div>
+                            <div class="cat-fur"></div>
+                            <div class="cat-fur"></div>
+                        </div>
+                        <div id="cat-eyes">
+                            <div class="cat-eye" id="cat-eye-left">
+                                <div class="cat-shine" id="cat-shine-left"></div>
+                            </div>
+                            <div class="cat-eye" id="cat-eye-right">
+                                <div class="cat-shine" id="cat-shine-right"></div>
+                            </div>
+                        </div>
+                        <div id="cat-whisk-left">
+                            <div class="cat-whisker" id="cat-whisk-one"></div>
+                            <div class="cat-whisker"></div>
+                            <div class="cat-whisker" id="cat-whisk-three"></div>
+                        </div>
+                        <div id="cat-nose"></div>
+                        <div id="cat-whisk-right">
+                            <div class="cat-whisker" id="cat-whisk-four"></div>
+                            <div class="cat-whisker"></div>
+                            <div class="cat-whisker" id="cat-whisk-six"></div>
+                        </div>
+                        <div id="cat-smile">
+                            <div id="cat-smile-left-align">
+                                <div id="cat-smile-left"></div>
+                                <div id="cat-mask-left"></div>
+                            </div>
+                            <div id="cat-smile-right-align">
+                                <div id="cat-smile-right"></div>
+                                <div id="cat-mask-right"></div>
+                            </div>
+                        </div>
+                        <div id="cat-tongue"></div>
+                        <div id="cat-tummy"></div>
+                    </div>
+
+                    <div id="bunny-container">
+                        <div id="bunny-tail"></div>
+                        <div id="bunny-tail-mask"></div>
+                        <div id="bunny-tail-end"></div>
+
+                        <div id="bunny-body">
+                            <div class="bunny-head"></div>
+                            <div class="bunny-ear" id="bunny-ear-left">
+                                <div class="bunny-ear-inner" id="bunny-ear-inner-left"></div>
+                            </div>
+                            <div class="bunny-ear" id="bunny-ear-right">
+                                <div class="bunny-ear-inner" id="bunny-ear-inner-right"></div>
+                            </div>
+                            <div id="bunny-mask"></div>
+                            <div id="bunny-patch">
+                                <div class="bunny-paw"></div>
+                                <div class="bunny-paw"></div>
+                                <div class="bunny-paw"></div>
+                                <div class="bunny-paw"></div>
+                            </div>
+                            <div id="bunny-eyes">
+                                <div class="bunny-eye" id="bunny-eye-left">
+                                    <div class="bunny-shine" id="bunny-shine-left"></div>
+                                </div>
+                                <div class="bunny-eye" id="bunny-eye-right">
+                                    <div class="bunny-shine" id="bunny-shine-right"></div>
+                                </div>
+                            </div>
+                            <div id="bunny-whisk-left">
+                                <div class="bunny-whisker" id="bunny-whisk-one"></div>
+                                <div class="bunny-whisker"></div>
+                                <div class="bunny-whisker" id="bunny-whisk-three"></div>
+                            </div>
+                            <div id="bunny-nose"></div>
+                            <div id="bunny-whisk-right">
+                                <div class="bunny-whisker" id="bunny-whisk-four"></div>
+                                <div class="bunny-whisker"></div>
+                                <div class="bunny-whisker" id="bunny-whisk-six"></div>
+                            </div>
+                            <div id="bunny-smile">
+                                <div id="bunny-smile-left-align">
+                                    <div id="bunny-smile-left"></div>
+                                    <div id="bunny-mask-left"></div>
+                                </div>
+                                <div id="bunny-smile-right-align">
+                                    <div id="bunny-smile-right"></div>
+                                    <div id="bunny-mask-right"></div>
+                                </div>
+                            </div>
+                            <div id="bunny-tongue"></div>
+                            <div id="bunny-tummy"></div>
+                        </div>
+                        <div id="dog-container">
+                            <div id="dog-tail"></div>
+                            <div id="dog-tail-mask"></div>
+                            <div id="dog-tail-end"></div>
+
+                            <div id="dog-body">
+                                <div class="dog-ear" id="dog-ear-left">
+                                    <div class="dog-ear-inner" id="dog-ear-inner-left"></div>
+                                </div>
+                                <div class="dog-ear" id="dog-ear-right">
+                                    <div class="dog-ear-inner" id="dog-ear-inner-right"></div>
+                                </div>
+                                <div id="dog-mask"></div>
+                                <div id="dog-patch">
+                                    <div class="dog-fur"></div>
+                                    <div class="dog-fur"></div>
+                                    <div class="dog-fur"></div>
+                                </div>
+                                <div id="dog-eyes">
+                                    <div class="dog-eye" id="dog-eye-left">
+                                        <div class="dog-shine" id="dog-shine-left"></div>
+                                    </div>
+                                    <div class="dog-eye" id="dog-eye-right">
+                                        <div class="dog-shine" id="dog-shine-right"></div>
+                                    </div>
+                                </div>
+                                <div id="dog-whisk-left">
+                                    <div class="dog-whisker" id="dog-whisk-one"></div>
+                                    <div class="dog-whisker"></div>
+                                    <div class="dog-whisker" id="dog-whisk-three"></div>
+                                </div>
+                                <div id="dog-nose"></div>
+                                <div id="dog-whisk-right">
+                                    <div class="dog-whisker" id="dog-whisk-four"></div>
+                                    <div class="dog-whisker"></div>
+                                    <div class="dog-whisker" id="dog-whisk-six"></div>
+                                </div>
+                                <div id="dog-smile">
+                                    <div id="dog-smile-left-align">
+                                        <div id="dog-smile-left"></div>
+                                        <div id="dog-mask-left"></div>
+                                    </div>
+                                    <div id="dog-smile-right-align">
+                                        <div id="dog-smile-right"></div>
+                                        <div id="dog-mask-right"></div>
+                                    </div>
+                                </div>
+                                <div id="dog-tongue"></div>
+                                <div id="dog-tummy"></div>
+                            </div>
+                            <p><button class="rB" value="submit">Adopted!</button></p>
+        </form>
         </div>
-            <div id="cat-container">
-                <div id="cat-tail"></div>
-                <div id="cat-tail-mask"></div>
-                <div id="cat-tail-end"></div>
-                
-                <div id="cat-body">
-                    <div class="cat-ear" id="cat-ear-left">
-                        <div class="cat-ear-inner" id="cat-ear-inner-left"></div>
-                    </div>
-                    <div class="cat-ear" id="cat-ear-right">
-                        <div class="cat-ear-inner" id="cat-ear-inner-right"></div>
-                    </div>
-                    <div id="cat-mask"></div>
-                    <div id="cat-patch">
-                        <div class="cat-fur"></div>
-                        <div class="cat-fur"></div>
-                        <div class="cat-fur"></div>
-                    </div>
-                    <div id="cat-eyes">
-                        <div class="cat-eye" id="cat-eye-left">
-                            <div class="cat-shine" id="cat-shine-left"></div>
-                        </div>
-                        <div class="cat-eye" id="cat-eye-right">
-                            <div class="cat-shine" id="cat-shine-right"></div>
-                        </div>
-                    </div>
-                    <div id="cat-whisk-left">
-                        <div class="cat-whisker" id="cat-whisk-one"></div>
-                        <div class="cat-whisker"></div>
-                        <div class="cat-whisker" id="cat-whisk-three"></div>
-                    </div>
-                    <div id="cat-nose"></div>
-                    <div id="cat-whisk-right">
-                        <div class="cat-whisker" id="cat-whisk-four"></div>
-                        <div class="cat-whisker"></div>
-                        <div class="cat-whisker" id="cat-whisk-six"></div>
-                    </div>
-                    <div id="cat-smile">
-                        <div id="cat-smile-left-align">
-                            <div id="cat-smile-left"></div>
-                            <div id="cat-mask-left"></div>
-                        </div>
-                        <div id="cat-smile-right-align">
-                            <div id="cat-smile-right"></div>
-                            <div id="cat-mask-right"></div>
-                        </div>
-                    </div>
-                    <div id="cat-tongue"></div>
-                    <div id="cat-tummy"></div>
-                </div>
-            </div>
-            <div id ="bowl">
-                <div id="water-bowl">
-                    <div class="water"></div>
-                </div>
-                <div id="food-bowl">
-                    <div class="food"></div>
-                </div>
-            </div>
-            
-            <div id="bunny-container">
-                <div id="bunny-tail"></div>
-                <div id="bunny-tail-mask"></div>
-                <div id="bunny-tail-end"></div>
-                
-                <div id="bunny-body">
-                    <div class="bunny-head"></div>
-                    <div class="bunny-ear" id="bunny-ear-left">
-                        <div class="bunny-ear-inner" id="bunny-ear-inner-left"></div>
-                    </div>
-                    <div class="bunny-ear" id="bunny-ear-right">
-                        <div class="bunny-ear-inner" id="bunny-ear-inner-right"></div>
-                    </div>
-                    <div id="bunny-mask"></div>
-                    <div id="bunny-patch">
-                        <div class="bunny-paw"></div>
-                        <div class="bunny-paw"></div>
-                        <div class="bunny-paw"></div>
-                        <div class="bunny-paw"></div>
-                    </div>
-                    <div id="bunny-eyes">
-                        <div class="bunny-eye" id="bunny-eye-left">
-                            <div class="bunny-shine" id="bunny-shine-left"></div>
-                        </div>
-                        <div class="bunny-eye" id="bunny-eye-right">
-                            <div class="bunny-shine" id="bunny-shine-right"></div>
-                        </div>
-                    </div>
-                    <div id="bunny-whisk-left">
-                        <div class="bunny-whisker" id="bunny-whisk-one"></div>
-                        <div class="bunny-whisker"></div>
-                        <div class="bunny-whisker" id="bunny-whisk-three"></div>
-                    </div>
-                    <div id="bunny-nose"></div>
-                    <div id="bunny-whisk-right">
-                        <div class="bunny-whisker" id="bunny-whisk-four"></div>
-                        <div class="bunny-whisker"></div>
-                        <div class="bunny-whisker" id="bunny-whisk-six"></div>
-                    </div>
-                    <div id="bunny-smile">
-                        <div id="bunny-smile-left-align">
-                            <div id="bunny-smile-left"></div>
-                            <div id="bunny-mask-left"></div>
-                        </div>
-                        <div id="bunny-smile-right-align">
-                            <div id="bunny-smile-right"></div>
-                            <div id="bunny-mask-right"></div>
-                        </div>
-                    </div>
-                    <div id="bunny-tongue"></div>
-                    <div id="bunny-tummy"></div>
-                </div>
-            </div>
-
-
-            <div id="dog-container">
-                <div id="dog-tail"></div>
-                <div id="dog-tail-mask"></div>
-                <div id="dog-tail-end"></div>
-                
-                <div id="dog-body">
-                    <div class="dog-ear" id="dog-ear-left">
-                        <div class="dog-ear-inner" id="dog-ear-inner-left"></div>
-                    </div>
-                    <div class="dog-ear" id="dog-ear-right">
-                        <div class="dog-ear-inner" id="dog-ear-inner-right"></div>
-                    </div>
-                    <div id="dog-mask"></div>
-                    <div id="dog-patch">
-                        <div class="dog-fur"></div>
-                        <div class="dog-fur"></div>
-                        <div class="dog-fur"></div>
-                    </div>
-                    <div id="dog-eyes">
-                        <div class="dog-eye" id="dog-eye-left">
-                            <div class="dog-shine" id="dog-shine-left"></div>
-                        </div>
-                        <div class="dog-eye" id="dog-eye-right">
-                            <div class="dog-shine" id="dog-shine-right"></div>
-                        </div>
-                    </div>
-                    <div id="dog-whisk-left">
-                        <div class="dog-whisker" id="dog-whisk-one"></div>
-                        <div class="dog-whisker"></div>
-                        <div class="dog-whisker" id="dog-whisk-three"></div>
-                    </div>
-                    <div id="dog-nose"></div>
-                    <div id="dog-whisk-right">
-                        <div class="dog-whisker" id="dog-whisk-four"></div>
-                        <div class="dog-whisker"></div>
-                        <div class="dog-whisker" id="dog-whisk-six"></div>
-                    </div>
-                    <div id="dog-smile">
-                        <div id="dog-smile-left-align">
-                            <div id="dog-smile-left"></div>
-                            <div id="dog-mask-left"></div>
-                        </div>
-                        <div id="dog-smile-right-align">
-                            <div id="dog-smile-right"></div>
-                            <div id="dog-mask-right"></div>
-                        </div>
-                    </div>
-                    <div id="dog-tongue"></div>
-                    <div id="dog-tummy"></div>
-                </div>
-            </div>
-
-
-            <div class="ball"></div>
-    </div>
-    <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 </body>
+
 </html>
