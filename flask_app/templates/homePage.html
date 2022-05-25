@@ -23,65 +23,57 @@
                     can get a new friend today. </h4>
             </div>
             <div class="container ">
-                <div id="sign-form" class="sign-form ">
-                    <form action="/register " method="post " class="navigation">
-                        <h2 id="sign-form" class="sign-form">Create Account</h2>
-                        <ol class="questions">
-                            <li>
-                                <span><label for="firstName ">First Name:</label></span>
-                                <input class="active" id="name" name="name" type="text" placeholder="Hey there... What's your name ;)" autofocus/>
-                            </li>
-                            <li>
-                                <span><label for="lastName ">Last Name:</label></span>
-                                <input class="active" id="name" name="name" type="text" placeholder="Last name?  Dont worry, I dont need your mothers madian name..." autofocus/>
-                            </li>
-                            <li>
-                                <span><label for="email ">Email:</label></span>
-                                <input id="email" name="email" type="text" placeholder="Email so we can spam you lots to remember to adpot a cutie" autofocus/>
-                            </li>
-                            <li>
-                                <span><label for="password ">Password:</label></span>
-                                <input id="viewpswd" name="password" type="text" placeholder="so...this your password..." />
-                            </li>
-                            <li>
-                                <span><label for="confirm ">Confirm Password:</label></span>
-                                <input id="password" name="password" type="password" placeholder="make sure you dont forget, type it again!" autofocus/>
-                                <span id="show-pwd" class="view"></span>
-                            </li>
-                            <li id="signup">
-                            </li>
-                        </ol>
-                        <div id="next-page"></div>
-                        <div class="error-message"></div>
+                <div id="sign-form" class="navigation">
+                    <form action="/register" method="post" id="sign-form" class="sign-form">
+                        <h2 class="text-dark">Create Account</h2>
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Please create an account.</strong>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input class="active" id="name" name="name" type="text" placeholder="Enter your first name" autofocus/>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input class="active" id="name" name="name" type="text" placeholder="Enter your last name" autofocus/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input id="email" name="email" type="text" placeholder="Email" autofocus/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input id="viewpswd" name="password" type="text" placeholder="this your password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm">Confirm Password:</label>
+                            <input id="password" name="password" type="password" placeholder="make sure you dont forget" autofocus/>
+                        </div>
+                        <input type="submit" value="Submit" href="/pet_profile" class="btn btn-primary">
                     </form>
-                    <form action="/login " method="post " class="sign-form " id="sign-form ">
-                        <h2 id="sign-form" class="sign-form ">Login</h2>
-                        <div class="error-message" role="alert ">
-                            <h4>Please log in!</h4>
-                            <ol class="questions">
-                                <li>
-                                    <span><label for="email ">Email:</label></span>
-                                    <input id="email" name="email" type="text" placeholder="And Your Email Is???" autofocus/>
-                                </li>
-                                <li>
-                                    <span><label for="password ">Password:</label></span>
-                                    <input id="password" name="password" type="password" placeholder="Password Please!!" autofocus/>
-                                </li>
-                                <li>
-                                    <input type="submit " value="Login " href="/pet_profile" id="signup" class="btn">
-                                </li>
-                            </ol>
-                            <div id="next-page"></div>
-                            <div class="error-message"></div>
+                    <form action="/login" method="post" id="sign-form" class="sign-form">
+                        <h2 class="text-dark">Login</h2>
+                        <div class="alert alert-danger" role="alert">
+                            <h4>Please log in.</h4>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <input type="submit" value="Login" href="/pet_profile" class="btn btn-success">
                     </form>
-                    </div>
                 </div>
             </div>
-            <div class="footer ">
-                <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
-            </div>
-            <script type="text/javascript " src="{{url_for( 'static',filename='js/script.js' )}} "></script>
-            </script>
+        </div>
+        <div class="footer ">
+            <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
+        </div>
+        <script type="text/javascript " src="{{url_for( 'static',filename='js/script.js' )}} "></script>
+        </script>
 </body>
 
 </html>
