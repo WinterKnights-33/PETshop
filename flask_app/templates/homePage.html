@@ -1,73 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/homePage.css')}}" />
     <title>Pet Shop - Home Page</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <nav class="navbar navbar-expand-lg bg-info">
-                <div class="container-fluid">
-                    <div class="pet_logo d-inline-flex p-1">
-                        <img class="rounded" src="../images/shop_main_logo.png" alt="main logo">
-                        <p class="text-center pl-1">
-                            <br>123 Street, 
-                            <br>ABC Town, 
-                            <br>USA 54321
-                        </p>
-                    </div>
-                    <h1 class=" d-flex .justifty-conent-center">Welcome to the Pet Shop!</h1>
-                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item ">
-                        <a class="nav-link text-dark" href="#">Pet Library</a>
-                      </li>
-                    </ul> 
+    <div>
+        <div class="cont">
+            <nav class="nav">
+                <div class="cont">
+                    <h1 class="nav">Welcome to the Pet Shop!</h1>
                 </div>
             </nav>
-            <img class="main_img img-fluid rounded mx-auto d-block" src="../images/animals.png" alt="animals" style="width:75%">
-            <h4>Looking for a new fur baby to join your family? Do you want something cute and cuddly or smooth and scaly or bright and feathery? Then you came to the right place. Our pet shop is one of a kind. Come explore the pet shop, and see if you can get a new friend today.  </h4>
-            <img class="main_img mg-fluid rounded mx-auto d-block" src="../images/kiss_puppy.png" style="width:75%" alt="kiss_puppy">
-        </div>
-        <div class="main">
-            <h2 class="text-center">Register or Login</h2>
-            <div class="d-flex justify-content-around">
-                <form action="/register" method="post" class="col-4 p-2 bg-info text-dark">
-                    <h2 class="text-dark">Create Account</h2>
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Please create an account.</strong>
+            <div class="cont">
+                <h4 class="nav">Looking for a new fur baby to join your family? Do you want something cute and cuddly or smooth and scaly or bright and feathery? Then you came to the right place. Our pet shop is one of a kind. Come explore the pet shop, and see if you
+                    can get a new friend today. </h4>
+            </div>
+            <div class="container ">
+                <div id="sign-form" class="navigation">
+                    <form action="/register" method="post" id="sign-form" class="sign-form">
+                        <div class="warning">
+                            {% with messages = get_flashed_messages (category_filter=['register']) %} {% if messages %}
+                            <div class="" role="alert">
+                                <strong>Flash Message</strong> {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %} {% endwith %}
                         </div>
-                    <div class="form-group">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" name="firstName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" name="lastName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm">Confirm Password:</label>
-                        <input type="password" name="confirm" class="form-control">
-                    </div>
-                    <input type="submit" value="Submit" href="/pet_profile" class="btn btn-primary">
+                </div>
+                <div class="form-group">
+                    <label class="form-group" for="first_name">
+                        First Name:
+                        <input type="text" name="first_name" class="active" id="name" placeholder="Enter your first name" autofocus/>
+                    </label>
+                    <label class="form-group" for="last_name">
+                        Last Name:
+                        <input type="text" name="last_name" class="active" id="name" placeholder="Enter your last name" autofocus/>
+                    </label>
+                    <label class="form-group" for="email">
+                        Email:
+                        <input class="active" type="email" name="email" id="email" placeholder="Your email here" autofocus/>
+                    </label>
+                    <label class="form-group" for="password">
+                        Password:
+                        <input class="active" type="password" name="password"id="password" placeholder="this your password" autofocus/>
+                    </label>
+                    <label class="form-group" for="confirm">
+                        Confirm Password:
+                        <input class="active" type="password" name="confirm" id="password" placeholder="make sure you dont forget" autofocus/>
+                    </label>
+                    <p><button class="btn">Register</button></p>
+
+                </div>
+
+                <input type="submit" value="Submit" href="/pet_profile" class="btn btn-primary">
                 </form>
-                <form action="/login" method="post" class="col-4 p-2 bg-info text-dark">
+                <form action="/login" method="post" id="sign-form" class="sign-form">
                     <h2 class="text-dark">Login</h2>
-                        <div class="alert alert-danger" role="alert">
-                            <h4>Please log in.</h4>
+                    <div class="warning">
+                        {% with messages = get_flashed_messages (category_filter=['login']) %} {% if messages %}
+                        <div class="" role="alert">
+                            <strong>Flash Message</strong> {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
                         </div>
+                        {% endif %} {% endwith %}
+                    </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="text" name="email" class="form-control">
@@ -81,11 +86,11 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p class="bg-dark text-light d-flex justify-content-center">Copyright © 2022 The Pet Shop
-            123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
+    <div class="footer ">
+        <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <script type="text/javascript " src="{{url_for( 'static',filename='js/script.js' )}} "></script>
     </script>
 </body>
+
 </html>

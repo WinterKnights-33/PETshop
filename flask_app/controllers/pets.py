@@ -6,7 +6,6 @@ from flask_app.models.pet import Pet
 
 from flask_app.controllers.users import User
 
-
 @app.route('/home')
 def home():
     if 'user_id' not in session:
@@ -18,7 +17,7 @@ def home():
     return render_template("dashboard.html", user=User.get_w_id(data), pets=Pet.get_all_t())
 
 
-@app.route('/pet/veiw/<int:id>')
+@app.route('/pet/petProfile/<int:id>')
 def view(id):
     data = {
         'id': id
@@ -46,7 +45,8 @@ def update(id):
         "name":request.form['name'],
         "birthdate":request.form['birthdate'],
         "description": request.form['description'],
-        "parents": request.form['parents']
+        "parents": request.form['parents'],
+        "user_id": session['user_id']
     }
     Pet.update(data)
     return redirect('/home')
@@ -59,7 +59,6 @@ def destroy(id):
     }
     Pet.destroy(data)
     return redirect('/home')
-
 
 @app.route('/pet/addPet')
 def report():
@@ -75,8 +74,9 @@ def save():
         "name":request.form['name'],
         "birthdate":request.form['birthdate'],
         "description": request.form['description'],
-        "parents": request.form['parents'],
+        "parent": request.form['parent'],
         "user_id": session['user_id']
     }
     Pet.save(data)
     return redirect('/home')
+

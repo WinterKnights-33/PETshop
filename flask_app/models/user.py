@@ -1,3 +1,4 @@
+
 from flask_app.config.mysqlconnection import connectToMySQL
 
 import re
@@ -74,3 +75,4 @@ class User:
         if user['password'] != user['confirm']:
             flash("Passwords must match", 'register')
         return is_valid
+    

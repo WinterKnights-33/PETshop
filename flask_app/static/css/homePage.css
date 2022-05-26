@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    background: #a0a9cc;
+    color: #fff;
+    font-size: 1em;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.cont,
+.nav {
+    background: #b7bed8;
+    color: #6a79a6;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 20px auto;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.container {
+    background: #b7bed8;
+    color: #6a79a6;
+    display: inline-block;
+    padding: 0em 2em;
+    margin: 6em auto;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
+}
+
+.container .navigation {
+    text-align: left;
+}
+
+.container .navigation input label {
+    list-style: none;
+    background: #b7bed8;
+    position: absolute;
+    padding: 30px 0;
+    width: 600px;
+    z-index: 100;
+    margin-bottom: 30px;
+}
+
+.container .navigation ol li input label {
+    display: inline-block;
+    margin-right: 27px;
+    font-size: 12pt;
+    max-width: 50%;
+    max-height: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.container .navigation div a input label {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.container .navigation input label div a.done {
+    opacity: 1;
+}
+
+.container .sign-form {
+    width: 900px;
+    text-align: left;
+    margin: 85px 0 0 0;
+}
+
+.container .sign-form #next-page {
+    opacity: 0;
+    width: 90px;
+    height: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.container .sign-form .form-group {
+    list-style: none;
+    -webkit-transition: height 0.4s;
+    transition: height 0.4s;
+    width: 88%;
+    display: inline-block;
+    height: 80px;
+}
+
+.container .sign-form .form-group li {
+    position: absolute;
+    width: 500px;
+}
+
+.container .sign-form .form-group {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.container .sign-form .form-group li input label {
+    width: 100%;
+    font-size: 11pt;
+    color: #f2f2f2;
+    border: none;
+    background: none;
+    border-bottom: 3px solid #fff;
+    padding: 5px 10px;
+    transition: all 0.5s ease;
+}
+
+.container .sign-form .form-group li input:focus {
+    outline: none;
+    border-bottom: 3px solid #6a79a6;
+}
+
+.container .sign-form .form-group li:not(:first-child) {
+    opacity: 0;
+    margin-top: 150px;
+}
+
+.container .sign-form .form-group li #viewpswd {
+    position: absolute;
+    opacity: 0;
+}
+
+.container .sign-form .form-group li #show-pwd {
+    margin: -2.75em 0em;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.container .sign-form .form-group li input label {
+    position: absolute;
+    width: 70%;
+    font-size: 11pt;
+    color: #f2f2f2;
+    height: 70px;
+    background: transparent;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+}
+
+.container .sign-form .form-group div {
+    padding-left: 3px;
+}
+
+.container .error-message {
+    color: rgba(207, 0, 0, 0.56);
+    font-size: 14px;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    background: #b7bed8;
+}
+
+::-webkit-input-placeholder {
+    font-size: 11pt;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@-webkit-keyframes moveUpFromDown {
+    from {
+        -webkit-transform: translateY(100%);
+    }
+    to {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes moveUpFromDown {
+    from {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    background-color: #aa71b6;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: rgb(62, 0, 128);
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn:hover {
+    box-shadow: rgba(106, 0, 255, 0.35) 0 -25px 18px -14px inset, rgba(76, 0, 255, 0.25) 0 1px 2px, rgba(123, 0, 255, 0.25) 0 2px 4px, rgba(115, 0, 255, 0.25) 0 4px 8px, rgba(51, 0, 255, 0.25) 0 8px 16px, rgba(119, 0, 255, 0.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-2.25deg);
+}
+
+.footer {
+    width: auto;
+    bottom: 10px;
+    background: #a3acd1;
+    color: #fff;
+    font-size: 8pt;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
