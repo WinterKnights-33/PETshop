@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -6,7 +8,23 @@
 }
 
 body {
-    background-color: lavender;
+    background: #a0a9cc;
+    color: #fff;
+    font-size: 1em;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.footer {
+    width: auto;
+    bottom: 10px;
+    background: #a3acd1;
+    color: #fff;
+    font-size: 8pt;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
+    font-weight: 100;
+    text-align: center;
 }
 
 .wrapper {
@@ -15,7 +33,8 @@ body {
     padding: 10px;
 }
 
-.header, .head {
+.header,
+.head {
     background-color: rgb(146, 25, 125);
     color: rgb(87, 1, 158);
     width: 800px;
@@ -39,7 +58,6 @@ body {
     width: 1000px;
 }
 
-
 .contian {
     width: 1000px;
     margin-top: 5px;
@@ -56,7 +74,7 @@ body {
     align-items: center;
 }
 
-.model, .dis {
+.dis {
     width: 1000px;
     height: 150px;
     padding: 20px;
@@ -89,7 +107,7 @@ body {
     margin-bottom: 5px;
     display: flex;
     align-items: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
 }
 
@@ -105,15 +123,16 @@ body {
     align-items: center;
 }
 
-
-.a, .b, .c, .d, .e, .f, .g, .rB, .intro-button, .logB, .makebutton {
+.a,
+.b,
+.makebutton {
     background-color: #aa71b6;
     border-radius: 100px;
-    box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
     color: rgb(62, 0, 128);
     cursor: pointer;
     display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
     padding: 7px 10px;
     text-align: center;
     text-decoration: none;
@@ -125,21 +144,11 @@ body {
     touch-action: manipulation;
 }
 
-.a:hover, .b:hover, .c:hover, .rB:hover , .intro-button:hover, .logB:hover, .makebutton:hover {
-
-    box-shadow: rgba(106, 0, 255, 0.35) 0 -25px 18px -14px inset,rgba(76, 0, 255, 0.25) 0 1px 2px,rgba(123, 0, 255, 0.25) 0 2px 4px,rgba(115, 0, 255, 0.25) 0 4px 8px,rgba(51, 0, 255, 0.25) 0 8px 16px,rgba(119, 0, 255, 0.25) 0 16px 32px;
+.a:hover,
+.b:hover,
+.makebutton:hover {
+    box-shadow: rgba(106, 0, 255, 0.35) 0 -25px 18px -14px inset, rgba(76, 0, 255, 0.25) 0 1px 2px, rgba(123, 0, 255, 0.25) 0 2px 4px, rgba(115, 0, 255, 0.25) 0 4px 8px, rgba(51, 0, 255, 0.25) 0 8px 16px, rgba(119, 0, 255, 0.25) 0 16px 32px;
     transform: scale(1.05) rotate(-2.25deg);
-}
-
-.skull {
-    border-radius: 200px;
-    display: center;
-    border: 3.5px solid rgb(181, 132, 190);
-    margin-left: 10px;
-    margin-right: 10px;
-    overflow:hidden;
-    white-space: wrap;
-
 }
 
 .dis {
