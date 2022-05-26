@@ -1,90 +1,94 @@
+
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models import user
+
 from flask import flash
 
 class Pet:
+    db = "pet_shop_schema"
     def __init__(self,data):
         self.id = data['id']
         self.name= data['name']
         self.birthdate= data['birthdate']
         self.description = data['description']
-        self.parent = data['parent']
+        self.parents = data['parents']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.user = user.User.get_one_by_id({'id':data['user_id']})
 
+    
+    @classmethod
+    def save(cls, data):
+        query = "INSERT INTO pets (name, birthdate, description, parents, user_id) VALUES (%(name)s, %(birthdate)s, %(description)s, %(parents)s, %(user_id)s);"
 
+        # comes back as the new row id
+        result = connectToMySQL('pet_shop_schema').query_db(query, data)
+        return result
 
     @classmethod
-    def create(cls,data):
-        query = "INSERT INTO pets (name, birthdate, description, parents, user_id) VALUES (%(name)s, %(birthdate)s, %(description)s, %(parent)s, %(user_id)s);"
-        new_pet_id = connectToMySQL('pet_shop_schema').query_db(query,data)
-        return new_pet_id
-
+    def get_my_t(cls,data):
+        query = "SELECT first_name FROM users LEFT JOIN pets ON user.id = pet.user_id WHERE id = %(id)s;"
+        query = "SELECT * FROM pets WHERE user_id = %(id)s;"
+        results = connectToMySQL('pet_shop_schema').query_db(query,data)
+        petstoreturn = []
+        for result in results:
+            petstoreturn.append(cls(result))
+        return (petstoreturn)
 
     @classmethod
-    def get_all(cls):
+    def get_all_t(cls):
+        query = "SELECT first_name FROM users LEFT JOIN pets ON user.id = pet.user_id WHERE id = %(id)s;"
         query = "SELECT * FROM pets;"
-        pets_from_db =  connectToMySQL('pet_shop_schema').query_db(query)
-        pets =[]
-        for b in pets_from_db:
-            pets.append(cls(b))
+        results = connectToMySQL('pet_shop_schema').query_db(query)
+        print (f"RESULTS{results}")
+        pets = []
+        for row in results:
+            pets.append( cls(row))
         return pets
 
-
     @classmethod
-    def get_one(cls,data):
+    def get_one_t(cls,data):
+        query = "SELECT first_name FROM users LEFT JOIN pets ON user.id = pet.user_id WHERE id = %(id)s;"
         query = "SELECT * FROM pets WHERE id = %(id)s;"
-        results = connectToMySQL('pet_shop_schema').query_db(query,data) #this is a list of 1 dictionaries
-        # make a report object
-        this_pet = cls(results[0])
-        # now we make a user object
-        user_info = {
-            'id' : results[0]['user_id']
-        }
-        this_user = user.User.get_one_by_id(user_info)
-        # make the user an attribute of this report
-        this_pet.user = this_user
-        return this_pet
+        results = connectToMySQL('pet_shop_schema').query_db(query,data)
+        return cls(results[0])
+
+    @classmethod
+    def get_name(cls,data):
+        query = "SELECT * FROM users LEFT JOIN pets ON user.id = pet.user_id WHERE id = %(id)s;"
+        query = "SELECT first_name FROM users WHERE user_id = %(user_id)s;"
+        results = connectToMySQL('pet_shop_schema').query_db(query,data)
+        return cls(results[0])
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE pets SET birthdate = %(birthdate)s, description = %(description)s, user_id = %(user_id)s WHERE id = %(id)s;"
+        return connectToMySQL('pet_shop_schema').query_db(query, data)
+
+    @classmethod
+    def submit_report(cls, data):
+        query = "UPDATE pets SET birthdate = %(birthdate)s, description = %(description)s, user_id = %(user_id)s, created_by = %(created_by)s WHERE id = %(id)s;"
+        return connectToMySQL('pet_shop_schema').query_db(query, data)
+    
+    @classmethod
+    def report(cls, data):
+        query = "UPDATE pets SET birthdate = %(birthdate)s, description = %(description)s, created_by = %(created_by)s, WHERE id = %(id)s;"
+        return connectToMySQL('pet_shop_schema').query_db(query, data)
 
 
     @classmethod
-    def update(cls,data):
-        query = "UPDATE pets SET name=%(name)s, birthdate=%(birthdate)s, description=%(description)s, parent=%(parent)s, updated_at = NOW() WHERE id = %(id)s;"
-        return connectToMySQL('pet_shop_schema').query_db(query,data)
-
-
-    @classmethod
-    def destroy(cls,data):
-        query = "DELETE FROM pets WHERE id = %(id)s;"
-        return connectToMySQL('pet_shop_schema').query_db(query,data)
-
-
-    @staticmethod
-    def validate_create(report):
-        is_valid = True # we assume this is true
-        if len(report['name']) == 0:
-            flash("Your pet needs a name.")
-            is_valid = False
-        if len(report['birthdate']) == 0:
-            flash("Your pet needs a birthdate.")
-            is_valid = False
-        if len(report['description']) == 0:
-            flash("Give them a cute description!")
-            is_valid = False
-        return is_valid
-
-
-    @staticmethod
-    def validate_edit(report):
-        is_valid = True # we assume this is true
-        if len(report['date']) == 0:
-            flash("Your pet needs a name.")
-            is_valid = False
-        if len(report['birthdate']) == 0:
-            flash("Your pet needs a birthdate.")
-            is_valid = False
-        if len(report['description']) == 0:
-            flash("Give them a cute description!")
-            is_valid = False
-        return is_valid
+    def destroy(cls, data):
+        query  = "DELETE FROM pets WHERE id = %(id)s;"
+        return connectToMySQL('pet_shop_schema').query_db(query, data)
+        
+#    @staticmethod
+#    def validate_reg(pet):
+#        is_valid= True
+#        if len(pet['title']) < 2:
+#            is_valid= False
+#            flash("Title must be at least 2 characters")
+#        if len(pet['description']) < 10:
+#            is_valid= False
+#            flash("Description must be at least 10 characters long")
+#        if len(pet['price']) < 0:
+#            is_valid= False
+#            flash("price should be greater than 0")
+#        return is_valid
