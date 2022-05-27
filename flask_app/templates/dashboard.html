@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container-fluid">
+            <div class="pet_logo d-inline-flex p-1">
+                <img class="rounded" src="../static/images/shop_main_logo.png" alt="main logo">
+                <p class="text-center pl-1">
+                    <br>123 Street, 
+                    <br>ABC Town, 
+                    <br>USA 54321
+                </p>
+            </div>
+            <h1 class=" d-flex .justifty-conent-center">Welcome to the Pet Shop!</h1>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-dark" aria-current="page" href="#">Your Pet's Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/pet/addPet">Adopt Pet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/logout">Logout</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <img class="img-fluid rounded mx-auto d-flex .justify-content-center " style="width:30%" src="../static/images/pet_lovers.png" alt="pet lovers">
+    <h1 class="text-center">Hello {{user.first_name}}</h1>
+    <p class="text-center">Welcome to your profile page. You can add more pets to your profile or check out some cool pets in our library from other members.</p>
+    <h3 class="text-center">Here are your pets:</h3>
+    <table class="table table-bordered">
+        <thead>
+            <th> Pet Name </th>
+            <th> Birth Date </th>
+            <th> Description</th>
+            <th> Actions</th>
+        </thead>
+        <tr>
+            {% for pet in pets %}
+                <tr>
+                    <td>
+                        <a href="/pet/veiw/{{pet.id}}">{{pet.name}}</a>
+                    </td>
+                    <td>
+                        <p>{{pet.birthdate}}</p>
+                    </td>
+                    <td>
+                        <p>{{pet.description}}</p>
+                    </td>
+                    <td>
+                        {% if pet.user_id == session['user_id'] %}
+                            <a href="/pet/editPet/{{pet.id}}">Edit  |  </a>
+                            <a href="/pet/delete/{{pet.id}}">Delete</a>
+                        {%  endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+</html>

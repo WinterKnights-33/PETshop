@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Pet Shop - Edit Pet</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container-fluid">
+            <div class="pet_logo d-inline-flex p-1">
+                <img class="rounded" src="../static/images/shop_main_logo.png" alt="main logo">
+                <p class="text-center pl-1">
+                    <br>123 Street, 
+                    <br>ABC Town, 
+                    <br>USA 54321
+                </p>
+            </div>
+            <h1 class=" d-flex .justifty-conent-center">Edit Your Pet!</h1>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-dark" aria-current="page" href="/home"> Dashboard </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/pet/addPet"> Add Pet </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/logout">Logout</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-around">
+        <form action="/addPet/pet/update/{{pet.id}}" method="post" class="col-4 p-4 my-4 bg-warning text-dark">
+            <h2 class="text-primary">Edit pet: </h2>
+            <div class="d-flex justify-content-between col-6">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="name">Pet Name:</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Birth Date:</label>
+                        <input type="date" name="birthdate" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea type="text" name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="parents">Parents:</label>
+                        <textarea type="text" name="parents" id="parents"></textarea>
+                    </div>
+                    <div class="col-2">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

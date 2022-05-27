@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop - Pet Profile</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container-fluid">
+            <div class="pet_logo d-inline-flex p-1">
+                <img class="rounded" src="../static/images/shop_main_logo.png" alt="main logo">
+                <p class="text-center pl-1">
+                    <br>123 Street, 
+                    <br>ABC Town, 
+                    <br>USA 54321
+                </p>
+            </div>
+            <h1 class=" d-flex .justifty-conent-center">Welcome to your Pet Profile!</h1>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-dark" aria-current="page" href="/home"> Dashboard </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/pet/editPet/{{pet.id}}"> Edit Pet </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/logout">Logout</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">Hello {{pet.name}} </h1>
+    <p class="text-center">Welcome to your pet profile page. Your parent can edit you in your profile or check out some other cool pets in our library from other members.</p>
+    
+    <div class="text-center pet_info">
+        <p> Birth Date: {{pet.birthdate}}</p>
+        <p> Description: {{pet.description}}</p>
+        <p> Parents: {{pet.parents}}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+</html>
