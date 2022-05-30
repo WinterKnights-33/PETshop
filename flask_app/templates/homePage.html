@@ -22,6 +22,7 @@
                 <h4 class="nav">Looking for a new fur baby to join your family? Do you want something cute and cuddly or smooth and scaly or bright and feathery? Then you came to the right place. Our pet shop is one of a kind. Come explore the pet shop, and see if you
                     can get a new friend today. </h4>
             </div>
+<<<<<<< Updated upstream
             <div class="container ">
                 <div id="sign-form" class="navigation">
                     <form action="/register" method="post" id="sign-form" class="sign-form">
@@ -34,6 +35,70 @@
                             </div>
                             {% endif %} {% endwith %}
                         </div>
+=======
+            <div class="container">
+                <div class="navigation">
+                    <ol>
+                        <li><a href="#" data-ref="name">Name</a></li>
+                        <li><a href="#" data-ref="uname">Username</a></li>
+                        <li><a href="#" data-ref="email">Email</a></li>
+                        <li><a href="#" data-ref="viewpswd">Password</a></li>
+                    </ol>
+                </div>
+                <form action="/register " method="post " id="sign-form" class="sign-form">
+                    <h2 id="sign-form" class="sign-form">Create Account</h2>
+                    <div>
+                        <ol class="questions">
+                            <li>
+                                <div>
+                                    <span><label for="name">First Name:</label></span>
+                                    <input class="active" id="name" name="name" type="text" placeholder="Hey there... What's your name ;)" autofocus/>
+                                </div>
+
+                                <div>
+                                    <span><label for="name">Last Name:</label></span>
+                                    <input class="active" id="name" name="name" type="text" placeholder="Last name?  Dont worry, I dont need your mothers madian name..." autofocus/>
+                                </div>
+
+                                <div>
+                                    <span><label for="email">Email:</label></span>
+                                    <input id="email" name="email" type="text" placeholder="Email so we can spam you lots to remember to adpot a cutie" autofocus/>
+                                </div>
+
+                                <div>
+                                    <span><label for="password">Password:</label></span>
+                                    <input id="viewpswd" name="password" type="text" placeholder="so...this your password..." />
+                                </div>
+
+                                <div>
+                                    <span><label for="password">Confirm Password:</label></span>
+                                    <input id="password" name="password" type="password" placeholder="make sure you dont forget, type it again!" autofocus/>
+                                </div>
+
+                                <div>
+                                    <span id="show-pwd" class="view"></span>
+                                </div>
+
+                                <li id="signup">
+                                </li>
+                        </ol>
+                    </div>
+                </form>
+                <form action="/login " method="post " class="sign-form " id="sign-form ">
+                    <h2 id="sign-form" class="sign-form ">Login</h2>
+                    <div class="error-message" role="alert ">
+                        <h4>Please log in!</h4>
+                        <ol class="questions">
+                            <li>
+                                <span><label for="email">Email:</label></span>
+                                <input id="email" name="email" type="text" placeholder="And Your Email Is???">
+                                <span><label for=" password "></label></span>
+                                <input id="password " name="password " type="password " placeholder="Password Please!! ">
+                                <input type="submit " value="Login " href="/pet_profile " id="signup " class="btn ">
+                            </li>
+                        </ol>
+                </form>
+>>>>>>> Stashed changes
                 </div>
                 <div class="form-group">
                     <label class="form-group" for="first_name">
@@ -85,12 +150,18 @@
                 </form>
             </div>
         </div>
+<<<<<<< Updated upstream
     </div>
     <div class="footer ">
         <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
     </div>
     <script type="text/javascript " src="{{url_for( 'static',filename='js/script.js' )}} "></script>
     </script>
+=======
+        <div class="footer ">
+            <p class="bg-dark text-light d-flex justify-content-center ">Copyright © 2022 The Pet Shop 123 Street • ABC Town, USA 12345 • (987) 654-3210</p>
+        </div>
+>>>>>>> Stashed changes
 </body>
 
 </html>
