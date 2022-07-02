@@ -994,3 +994,57 @@ text {
     animation: bounce-shadow interval * 2 infinite alternate;
     z-index: -10;
 }*/
+
+#bowl {
+    margin-left: 55%;
+    margin-top: 15%;
+}
+
+#water-bowl {
+    margin-top: 20px;
+    height: 15px;
+    width: 50px;
+    border-radius: 0 0 50px 50px;
+    background-color: #f813ab;
+}
+
+@keyframes load {
+    0% {
+        box-shadow: 0 0 #f813ab inset;
+    }
+    25% {
+        box-shadow: 0 0 #3b73ed inset;
+    }
+    50% {
+        box-shadow: 0 0 #3b72ba inset;
+    }
+    100% {
+        box-shadow: 0 -80px #0404e8 inset;
+    }
+}
+
+.water {
+    height: 5px;
+    width: 51px;
+    border-radius: 50px 50px 0 0;
+    z-index: 10;
+    transform: rotate(180deg);
+    animation: load 1.5s linear infinite alternate;
+}
+
+#food-bowl {
+    margin-left: 65px;
+    height: 15px;
+    width: 50px;
+    border-radius: 0 0 50px 50px;
+    background-color: #f813ab;
+}
+
+.food {
+    height: 5px;
+    width: 51px;
+    border-radius: 50px 50px 0 0;
+    background-color: #895b16;
+    z-index: 10;
+    transform: rotate(180deg);
+}
